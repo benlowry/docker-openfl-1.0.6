@@ -19,12 +19,14 @@ RUN /root/install-haxe.sh -y
 # Install haxelibs and openfl
 RUN haxelib install actuate 1.7.0
 RUN haxelib install haxe-ga 0.4.6
+RUN haxelib install hxcpp 3.1.39
 RUN haxelib install hxlibc 1.1.4
 RUN haxelib install hxtools 1.1.6
 RUN haxelib install openfl 1.0.6
 RUN haxelib install openfl-html5-dom 1.2.1
 RUN haxelib install openfl-native 1.0.6
 RUN haxelib install openfl-compatibility 1.0.1
+RUN haxelib install openfl-tools 1.10
 
 # Setup openfl android dependencies
 ADD android-ndk.tar.gz /root/
