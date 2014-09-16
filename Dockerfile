@@ -6,9 +6,11 @@ RUN apt-get update && \
     apt-get install -y build-essential software-properties-common git unzip wget curl imagemagick default-jre default-jdk
 
 CMD ["/bin/bash"]
+RUN mkdir /root/
+RUN chown -R root:root /root
+WORKDIR /root/
 ENV HOME /root/
 RUN env
-WORKDIR /root/
 
 # Install haxe
 ADD hxcpp_config.xml /root/.hxcpp_config.xml
@@ -37,6 +39,8 @@ ADD apache-ant.tar.gz /root/
 RUN mkdir /root/.ssh/
 ADD pb_rsa.pub /root/.ssh/id_rsa.pub
 ADD pb_rsa /root/.ssh/id_rsa
+RUN chmod -R 600 /root/.ssh/id_rsa
+RUN chmod -R 600 /root/.ssh/id_rsa/.pub
 
 RUN touch /root/.ssh/known_hosts
 RUN ssh-keyscan bitbucket.org >> /root/.ssh/known_hosts
@@ -48,7 +52,3 @@ RUN git clone git@bitbucket.org:puzzleboss/jigsaw-engine.git /root/jigsaws/jigsa
 RUN git clone git@bitbucket.org:puzzleboss/jigsaw-build.git /root/jigsaws/build
 RUN git clone git@bitbucket.org:puzzleboss/jigsaw-photos.git /root/jigsaws/Photos
 RUN mkdir /root/JigsawsCompile/
-
-# Permissions
-RUN chown -R root:root /root
-RUN chmod -R 600 /root/.ssh/*
