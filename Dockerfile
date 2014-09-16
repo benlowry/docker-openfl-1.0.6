@@ -51,4 +51,4 @@ RUN mkdir /root/JigsawsCompile/
 
 # Permissions
 RUN chown -R root:root /root
-RUN chmod -R 700 /root/.ssh/*
+RUN chmod -R 600 /root/.ssh/*
