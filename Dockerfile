@@ -27,19 +27,14 @@ RUN haxelib install openfl-native 1.0.6
 RUN haxelib install openfl-compatibility 1.0.1
 
 # Setup openfl android dependencies
-RUN curl -L -o /root/android-ndk.tar.gz https://www.dropbox.com/s/mgve63yj4ht6rxs/android-ndk.tar.gz?dl=1
-RUN curl -L -o /root/android-sdk.tar.gz https://www.dropbox.com/s/5f2kzosdm03mxul/android-sdk.tar.gz?dl=1
-RUN curl -L -o /root/apache-ant.tar.gz https://www.dropbox.com/s/b4jlmw3nvc45vff/apache-ant.tar.gz?dl=1
-RUN tar zxfv android-ndk.tar.gz
-RUN tar zxfv android-sdk.tar.gz
-RUN tar zxfv apache-ant.tar.gz
+ADD android-ndk.tar.gz /root/
+ADD android-sdk.tar.gz /root/
+ADD apache-ant.tar.gz /root/
 
 # SSH key for bitbucket
 RUN mkdir /root/.ssh/
 ADD pb_rsa.pub /root/.ssh/id_rsa.pub
 ADD pb_rsa /root/.ssh/id_rsa
-RUN chmod 700 /root/.ssh/id_rsa.pub
-RUN chmod 700 /root/.ssh/id_rsa
 
 RUN touch /root/.ssh/known_hosts
 RUN ssh-keyscan bitbucket.org >> /root/.ssh/known_hosts
