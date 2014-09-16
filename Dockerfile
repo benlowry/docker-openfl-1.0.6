@@ -26,7 +26,7 @@ RUN haxelib install openfl 1.0.6
 RUN haxelib install openfl-html5-dom 1.2.1
 RUN haxelib install openfl-native 1.0.6
 RUN haxelib install openfl-compatibility 1.0.1
-RUN haxelib install openfl-tools 1.10
+RUN haxelib install openfl-tools 1.0.10
 
 # Setup openfl android dependencies
 ADD android-ndk.tar.gz /root/
