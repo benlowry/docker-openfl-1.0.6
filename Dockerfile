@@ -6,7 +6,7 @@ RUN apt-get update && \
     apt-get install -y build-essential software-properties-common git unzip wget curl imagemagick default-jre default-jdk
 
 CMD ["/bin/bash"]
-RUN mkdir /root/
+RUN mkdir -p /root/
 RUN chown -R root:root /root
 WORKDIR /root/
 ENV HOME /root/
