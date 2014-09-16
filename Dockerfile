@@ -40,7 +40,7 @@ RUN mkdir /root/.ssh/
 ADD pb_rsa.pub /root/.ssh/id_rsa.pub
 ADD pb_rsa /root/.ssh/id_rsa
 RUN chmod -R 600 /root/.ssh/id_rsa
-RUN chmod -R 600 /root/.ssh/id_rsa/.pub
+RUN chmod -R 600 /root/.ssh/id_rsa.pub
 
 RUN touch /root/.ssh/known_hosts
 RUN ssh-keyscan bitbucket.org >> /root/.ssh/known_hosts
