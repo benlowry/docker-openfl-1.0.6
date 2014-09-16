@@ -1,0 +1,9 @@
+<xml>
+	<section id="vars">
+		<set name="ANDROID_SETUP" value="true" />
+		<set name="ANDROID_NDK_ROOT" value="/root/android-ndk" />
+		<set name="ANDROID_SDK" value="/root/android-sdk" />
+		<set name="ANT_HOME" value="/root/apache-ant" />
+		<set name="JAVA_HOME" value="/usr/lib/jvm/java-7-openjdk-amd64" />
+	</section>
+</xml>
