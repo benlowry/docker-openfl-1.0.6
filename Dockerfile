@@ -7,7 +7,6 @@ RUN apt-get update && \
 
 CMD ["/bin/bash"]
 RUN mkdir -p /root/
-RUN chown -R root:root /root
 WORKDIR /root/
 ENV HOME /root/
 RUN env
@@ -52,3 +51,5 @@ RUN git clone git@bitbucket.org:puzzleboss/jigsaw-engine.git /root/jigsaws/jigsa
 RUN git clone git@bitbucket.org:puzzleboss/jigsaw-build.git /root/jigsaws/build
 RUN git clone git@bitbucket.org:puzzleboss/jigsaw-photos.git /root/jigsaws/Photos
 RUN mkdir /root/JigsawsCompile/
+
+RUN chown -R root:root /root
